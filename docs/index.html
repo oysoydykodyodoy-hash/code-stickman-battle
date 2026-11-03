@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>معركة لغة البرمجة: حكاية الكود</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app" class="app-container">
+        <!-- شاشة التحميل -->
+        <div id="screen-splash" class="screen active">
+            <div class="splash-content">
+                <div class="logo-icon">⚔️</div>
+                <h1>معركة لغة البرمجة</h1>
+                <p>أنقذ عالم الأكواد من هجوم البجز (Bugs)!</p>
+                <button class="btn btn-primary btn-lg" onclick="showScreen('screen-menu')">ابدأ اللعبة</button>
+            </div>
+        </div>
+
+        <!-- القائمة الرئيسية -->
+        <div id="screen-menu" class="screen">
+            <header class="app-header">
+                <h2>القائمة الرئيسية</h2>
+                <div class="player-stats-mini">
+                    <span id="mini-coins">🪙 0</span>
+                    <span id="mini-gems">💎 0</span>
+                </div>
+            </header>
+            <div class="menu-content">
+                <button class="btn btn-primary btn-block" onclick="showScreen('screen-level')">🎮 ابدأ المعركة</button>
+                <button class="btn btn-secondary btn-block" onclick="showScreen('screen-skins')">👕 السكنات المخصصة</button>
+                <button class="btn btn-secondary btn-block" onclick="showScreen('screen-shop')">🛒 المتجر والترقيات</button>
+                <button class="btn btn-accent btn-block" onclick="showScreen('screen-achievements')">🏆 الإنجازات</button>
+            </div>
+        </div>
+
+        <!-- اختيار المرحلة -->
+        <div id="screen-level" class="screen">
+            <header class="app-header">
+                <button class="btn-icon" onclick="showScreen('screen-menu')">◀</button>
+                <h2>اختر لغة البطل</h2>
+                <div></div>
+            </header>
+            <div class="level-content">
+                <p class="section-desc">اختر لغة البرمجة التي ستقاتل بها ضد البجز:</p>
+                <div class="hero-select-grid">
+                    <div class="hero-card" onclick="selectHero('C#')">
+                        <div class="hero-avatar">💻</div>
+                        <h3>C#</h3>
+                        <p>بطل نظام ويندوز العنيف</p>
+                        <span class="badge">قوة عالية</span>
+                    </div>
+                    <div class="hero-card" onclick="selectHero('C++')">
+                        <div class="hero-avatar">⚡</div>
+                        <h3>C++</h3>
+                        <p>سريع وخارق الذاكرة</p>
+                        <span class="badge">سرعة قصوى</span>
+                    </div>
+                    <div class="hero-card" onclick="selectHero('Java')">
+                        <div class="hero-avatar">☕</div>
+                        <h3>Java</h3>
+                        <p>عملاق المنصات المتعددة</p>
+                        <span class="badge">صحة عالية</span>
+                    </div>
+                    <div class="hero-card" onclick="selectHero('Kotlin')">
+                        <div class="hero-avatar">🚀</div>
+                        <h3>Kotlin</h3>
+                        <p>سريع ومبتكر للأندرويد</p>
+                        <span class="badge">أكشن متواصل</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- شاشة السكنات المخصصة -->
+        <div id="screen-skins" class="screen">
+            <header class="app-header">
+                <button class="btn-icon" onclick="showScreen('screen-menu')">◀</button>
+                <h2>السكنات المخصصة</h2>
+                <div id="skin-coins">🪙 0</div>
+            </header>
+            <div class="skins-content">
+                <p class="section-desc">خصص مظهر بطلك بأحدث صيحات التصميم:</p>
+                <div class="skins-grid" id="skins-container">
+                    <!-- تُولد عبر جافاسكريبت -->
+                </div>
+            </div>
+        </div>
+
+        <!-- شاشة المتجر والترقيات -->
+        <div id="screen-shop" class="screen">
+            <header class="app-header">
+                <button class="btn-icon" onclick="showScreen('screen-menu')">◀</button>
+                <h2>المتجر والترقيات</h2>
+                <div id="shop-coins">🪙 0</div>
+            </header>
+            <div class="shop-content">
+                <div class="shop-section">
+                    <h3>ترقيات القدرات</h3>
+                    <div class="upgrade-item">
+                        <div class="up-info">
+                            <h4>قوة الضربة (Damage)</h4>
+                            <p>زيادة ضرر الهجمات العادية والخاصة</p>
+                        </div>
+                        <button class="btn btn-primary" onclick="upgradeStat('dmg')">ترقية (🪙 <span id="cost-dmg">50</span>)</button>
+                    </div>
+                    <div class="upgrade-item">
+                        <div class="up-info">
+                            <h4>طاقة الحياة (HP)</h4>
+                            <p>زيادة الحد الأقصى للصحة</p>
+                        </div>
+                        <button class="btn btn-primary" onclick="upgradeStat('hp')">ترقية (🪙 <span id="cost-hp">50</span>)</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- شاشة الإنجازات -->
+        <div id="screen-achievements" class="screen">
+            <header class="app-header">
+                <button class="btn-icon" onclick="showScreen('screen-menu')">◀</button>
+                <h2>الإنجازات</h2>
+                <div></div>
+            </header>
+            <div class="ach-content" id="achievements-container">
+                <!-- تُولد عبر جافاسكريبت -->
+            </div>
+        </div>
+
+        <!-- شاشة المعركة (اللعبة الفعلية) -->
+        <div id="screen-game" class="screen">
+            <div class="game-hud">
+                <div class="hud-hero">
+                    <span id="hud-hero-name">C#</span>
+                    <div class="hp-bar-container"><div id="hud-hp-fill" class="hp-fill" style="width: 100%;"></div></div>
+                </div>
+                <div class="hud-score">
+                    <span>البجز المتبقية: <strong id="hud-bugs">10</strong></span>
+                </div>
+                <button class="btn-icon pause-btn" onclick="togglePause()">⏸</button>
+            </div>
+
+            <div class="game-canvas-container" id="game-container">
+                <canvas id="gameCanvas"></canvas>
+                <div id="floating-text-layer"></div>
+            </div>
+
+            <!-- أدوات التحكم اللمسية (Mobile Controls) -->
+            <div class="game-controls">
+                <div class="d-pad">
+                    <button class="ctrl-btn" ontouchstart="setMove(-1)" ontouchend="setMove(0)" onmousedown="setMove(-1)" onmouseup="setMove(0)">◀</button>
+                    <button class="ctrl-btn" ontouchstart="setMove(1)" ontouchend="setMove(0)" onmousedown="setMove(1)" onmouseup="setMove(0)">▶</button>
+                </div>
+                <div class="actions-pad">
+                    <button class="ctrl-btn action-jump" onclick="playerJump()">⬆</button>
+                    <button class="ctrl-btn action-attack" onclick="playerAttack()">⚔️</button>
+                    <button class="ctrl-btn action-special" onclick="playerSpecial()">🔥</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- نافذة التوقف المؤقت -->
+        <div id="modal-pause" class="modal">
+            <div class="modal-content">
+                <h3>اللعبة متوقفة</h3>
+                <button class="btn btn-primary btn-block" onclick="togglePause()">استمرار</button>
+                <button class="btn btn-secondary btn-block" onclick="quitGame()">إنسحاب للقائمة</button>
+            </div>
+        </div>
+
+        <!-- نافذة نهاية المعركة -->
+        <div id="modal-gameover" class="modal">
+            <div class="modal-content">
+                <h3 id="gameover-title">انتهت المعركة</h3>
+                <p id="gameover-desc">لقد قمت بالقضاء على الأخطاء البرمجية بنجاح!</p>
+                <div class="rewards-earned" id="gameover-rewards"></div>
+                <button class="btn btn-primary btn-block" onclick="showScreen('screen-menu')">العودة للقائمة</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
